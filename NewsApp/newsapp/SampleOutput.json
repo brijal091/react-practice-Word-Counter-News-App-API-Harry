@@ -1,0 +1,32 @@
+{
+    "status": "ok",
+    "totalResults": 2,
+    "articles": [
+    {
+    "source": {
+    "id": null,
+    "name": "New York Times"
+    },
+    "author": "Sharon Otterman",
+    "title": "When Covid Enters the House, What Should We Do? - The New York Times",
+    "description": "When someone in the family tests positive for the coronavirus, there are some guidelines to follow.",
+    "url": "https://www.nytimes.com/2022/04/17/nyregion/covid-questions-families.html",
+    "urlToImage": "https://static01.nyt.com/images/2022/04/15/nyregion/00virus_family_explainer1/00virus_family_explainer1-facebookJumbo.jpg",
+    "publishedAt": "2022-04-18T09:01:00Z",
+    "content": "If a vaccinated child is highly exposed to Covid at home but is still healthy, parents might consider keeping that child home to protect others. Masks do come off at lunch. But this measure would be … [+1824 chars]"
+    },
+    {
+    "source": {
+    "id": null,
+    "name": "New York Times"
+    },
+    "author": "Neal E. Boudette",
+    "title": "Jim Farley Tries to Reinvent Ford and Catch Up to Elon Musk and Tesla - The New York Times",
+    "description": "Ford’s chief executive is about to introduce an electric F-150 pickup truck that could determine whether the automaker can survive and thrive in an industry dominated by Tesla.",
+    "url": "https://www.nytimes.com/2022/04/18/business/economy/jim-farley-ford-lightning.html",
+    "urlToImage": "https://static01.nyt.com/images/2022/04/18/business/00ford-farley02/00ford-farley02-facebookJumbo.jpg",
+    "publishedAt": "2022-04-18T07:00:10Z",
+    "content": "Auto experts say the electric F-150, known as the Lightning, must be a success if Ford is to thrive in the age of electric vehicles. Introducing this truck now is equivalent to betting the company, s… [+2831 chars]"
+    }
+    ]
+    }

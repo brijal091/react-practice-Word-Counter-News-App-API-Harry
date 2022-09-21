@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+"use strict"
+        //let can not be overriden 
+
+        
+        let a = 34;
+        console.log(a)
+        
+        // due to 'use strict' it will throw an error because javascript is executing stictly so let or var is needed
+        // b = 5666;
+        // console.log(b);
+
+        // Normal Function
+        function hello(){
+            console.log("Hello Brijal " + this)
+        }
+        hello();
+
+        // arrow function 
+        //we can note that inside the arrow function this is windows object but inside the normal funciton this is undefinded
+        let arrow_func = () => {
+            console.log("Hello I am an arrow function" + this);
+        }
+        arrow_func();
+
+        //objects and object functions
+        let obj = {
+                a: {
+                    x: 55,
+                    y: 20,
+                    z: 10
+                },
+                b: 34,
+                c: 15,
+                d: function my_func(){
+                    console.log(this.c + "I am  object function with " );
+                }
+            }
+            //event listners, alerts and confirm box
+            document.addEventListener("click", function clicking(){
+                alert("Gelo user");
+                confirm("Are you sure?");
+            })
+
+    </script>
+    Learnign React.
+    <h1>Click me</h1>
+</body>
+</html>
