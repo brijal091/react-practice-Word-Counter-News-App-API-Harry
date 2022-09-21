@@ -26,7 +26,7 @@ export class News extends Component {
 
   handlePrevbtn = async () =>{
     // console.log("Prev is clicked");
-    let url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=de4ede6c9b9e434fa7cc5673149168b0&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`
+    let url = `https://newsapi.org/v2/top-headlines?country=us&category=${this.props.category}&apiKey=de4ede6c9b9e434fa7cc5673149168b0&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`
     {this.setState({loading: true})}
 
     let data = await fetch(url);
@@ -43,7 +43,7 @@ export class News extends Component {
     if(!(this.state.page + 1 > Math.ceil(this.state.totalResults/this.props.pageSize))){
       // document.getElementById("nxtbtn").disabled = true;
     // console.log("Next is clicked");
-    let url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=de4ede6c9b9e434fa7cc5673149168b0&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`
+    let url = `https://newsapi.org/v2/top-headlines?country=us&category=${this.props.category}&apiKey=de4ede6c9b9e434fa7cc5673149168b0&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`
     {this.setState({loading: true})}
     let data = await fetch(url);
     let ParseData = await data.json()
@@ -60,7 +60,7 @@ export class News extends Component {
     return (
       <div>
         <div className="container my-3">
-          <h1 className='my-5 text-center'>News Monkey | Top HeadLines </h1>
+          <h1 className='my-5 text-center'>News Monkey | Top HeadLines </h1> {this.props.category}
           <div className="text-center">{this.state.loading && <Spiner />}</div>
           
           <div className="row">
