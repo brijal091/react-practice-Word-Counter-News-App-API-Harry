@@ -5,55 +5,34 @@ import Spiner from './Spiner';
 export class News extends Component {
   constructor() {
     super();
-    // console.log("Helllo World from news component");
       this.state = {
         articles: [],
         loading: false,
         page: 1
       }
   }
-  async componentDidMount(){
-    let url = `https://newsapi.org/v2/top-headlines?country=us&category=${this.props.category}&apiKey=de4ede6c9b9e434fa7cc5673149168b0&page=1&pageSize=${this.props.pageSize}`
-    {this.setState({loading: true})}
 
+  async updateNews(){
+    const url = `https://newsapi.org/v2/top-headlines?country=us&page=${this.state.page}&category=${this.props.category}&apiKey=de4ede6c9b9e434fa7cc5673149168b0&page=1&pageSize=${this.props.pageSize}`
+    {this.setState({loading: true})}
     let data = await fetch(url);
     let ParseData = await data.json()
     {this.setState({loading: false})}
-
-
     this.setState({articles: ParseData.articles, totalResults: ParseData.totalResults})
   }
 
+  async componentDidMount(){
+    this.updateNews();
+  }
+
   handlePrevbtn = async () =>{
-    // console.log("Prev is clicked");
-    let url = `https://newsapi.org/v2/top-headlines?country=us&category=${this.props.category}&apiKey=de4ede6c9b9e434fa7cc5673149168b0&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`
-    {this.setState({loading: true})}
-
-    let data = await fetch(url);
-    let ParseData = await data.json()
-    {this.setState({loading: false})}
-
-    this.setState(
-      {page: this.state.page - 1,
-        articles: ParseData.articles,
-      })
+    this.setState({page: this.state.page - 1});
+    this.updateNews();
   }
 
   handleNextbtn = async () =>{
-    if(!(this.state.page + 1 > Math.ceil(this.state.totalResults/this.props.pageSize))){
-      // document.getElementById("nxtbtn").disabled = true;
-    // console.log("Next is clicked");
-    let url = `https://newsapi.org/v2/top-headlines?country=us&category=${this.props.category}&apiKey=de4ede6c9b9e434fa7cc5673149168b0&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`
-    {this.setState({loading: true})}
-    let data = await fetch(url);
-    let ParseData = await data.json()
-    {this.setState({loading: false})}
-    
-    this.setState(
-      {page: this.state.page + 1,
-        articles: ParseData.articles
-      })
-    }
+    this.setState({page: this.state.page + 1});
+    this.updateNews();
   }
 
   render() {
@@ -70,7 +49,7 @@ export class News extends Component {
               {/* we are passing props, of json that are related to ele to the item card */}
               {/* <NewsItem key={ele.url} title={ele.title} description={ele.description} imageUrl={ele.urlToImage} newsUrl="Todo"/>
               In above it will show an error in console. because we can not give key here. we should pass the key what we are returning. that means here div. And must note that our key should ne unique. */}
-              <NewsItem title={ele.title?ele.title.slice(0,45):""} description={ele.description?ele.description.slice(0,88):""} imageUrl={ele.urlToImage?ele.urlToImage:"https://i.stack.imgur.com/6M513.png"} newsUrl={ele.url} />
+              <NewsItem title={ele.title?ele.title.slice(0,45):""} description={ele.description?ele.description.slice(0,88):""} imageUrl={ele.urlToImage?ele.urlToImage:"https://i.stack.imgur.com/6M513.png"} newsUrl={ele.url}  author={ele.author} date ={ele.publishedAt}/>
           </div>
           })}
             </div>
