@@ -21,7 +21,7 @@ export class News extends Component {
     let ParseData = await data.json()
     {this.setState({loading: false})}
 
-
+    console.log(ParseData)
     this.setState({articles: ParseData.articles, totalResults: ParseData.totalResults})
   }
 
@@ -33,6 +33,7 @@ export class News extends Component {
     let data = await fetch(url);
     let ParseData = await data.json()
     {this.setState({loading: false})}
+    console.log(ParseData)
 
     this.setState(
       {page: this.state.page - 1,
@@ -49,6 +50,7 @@ export class News extends Component {
     let data = await fetch(url);
     let ParseData = await data.json()
     {this.setState({loading: false})}
+    console.log(ParseData)
     
     this.setState(
       {page: this.state.page + 1,
@@ -72,7 +74,7 @@ export class News extends Component {
               {/* we are passing props, of json that are related to ele to the item card */}
               {/* <NewsItem key={ele.url} title={ele.title} description={ele.description} imageUrl={ele.urlToImage} newsUrl="Todo"/>
               In above it will show an error in console. because we can not give key here. we should pass the key what we are returning. that means here div. And must note that our key should ne unique. */}
-              <NewsItem title={ele.title?ele.title.slice(0,45):""} description={ele.description?ele.description.slice(0,88):""} imageUrl={ele.urlToImage?ele.urlToImage:"https://i.stack.imgur.com/6M513.png"} newsUrl={ele.url} />
+              <NewsItem title={ele.title?ele.title.slice(0,45):""} description={ele.description?ele.description.slice(0,88):""} imageUrl={ele.urlToImage?ele.urlToImage:"https://i.stack.imgur.com/6M513.png"} newsUrl={ele.url} author={ele.author} date = {ele.publishedAt} />
           </div>
           })}
             </div>
