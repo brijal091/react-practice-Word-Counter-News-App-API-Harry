@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import NewsItem from './NewsItem'
+import React, { Component } from 'react';
+import NewsItem from './NewsItem';
 import Spiner from './Spiner';
 
 export class News extends Component {
@@ -12,27 +12,23 @@ export class News extends Component {
       }
   }
 
-  async updateNews(){
+  async componentDidMount(){
     const url = `https://newsapi.org/v2/top-headlines?country=us&page=${this.state.page}&category=${this.props.category}&apiKey=de4ede6c9b9e434fa7cc5673149168b0&page=1&pageSize=${this.props.pageSize}`
     {this.setState({loading: true})}
     let data = await fetch(url);
     let ParseData = await data.json()
-    {this.setState({loading: false})}
-    this.setState({articles: ParseData.articles, totalResults: ParseData.totalResults})
-  }
-
-  async componentDidMount(){
-    this.updateNews();
+    console.log(ParseData)
+    this.setState({articles: ParseData.articles, totalResults: ParseData.totalResults,loading: false})
   }
 
   handlePrevbtn = async () =>{
     this.setState({page: this.state.page - 1});
-    this.updateNews();
+    this.componentDidMount();
   }
 
   handleNextbtn = async () =>{
     this.setState({page: this.state.page + 1});
-    this.updateNews();
+    this.componentDidMount();
   }
 
   render() {
